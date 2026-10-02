@@ -1,0 +1,49 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "viewsmax",
+  "version": "0.1.0",
+  "description": "Publish and schedule social posts, track offers with tracked links, report clicks and revenue, and research outlier videos through the ViewsMax MCP server.",
+  "author": {
+    "name": "ViewsMax",
+    "email": "admin@iclicksee.com",
+    "url": "https://viewsmax.com"
+  },
+  "homepage": "https://viewsmax.com/ai",
+  "keywords": [
+    "social media",
+    "scheduling",
+    "publishing",
+    "analytics",
+    "link tracking",
+    "youtube",
+    "tiktok"
+  ],
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "ViewsMax",
+        "shortDescription": "Post, schedule, track offers",
+        "longDescription": "ViewsMax connects your YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky accounts so you can draft, schedule, and publish posts from a conversation. Track sponsorships and affiliate offers with a tracked link per placement, see clicks, calls booked, sign-ups, and revenue over time, and research outlier videos that beat their channel's average, with AI breakdowns of why they worked.",
+        "developerName": "ViewsMax",
+        "category": "Productivity",
+        "capabilities": [
+          "Publish and schedule social posts",
+          "Track offers with tracked links",
+          "Report clicks, conversions, and revenue",
+          "Research outlier videos"
+        ],
+        "websiteURL": "https://viewsmax.com",
+        "supportURL": "https://viewsmax.com/ai",
+        "privacyPolicyURL": "https://viewsmax.com/privacy",
+        "termsOfServiceURL": "https://viewsmax.com/terms",
+        "defaultPrompt": [
+          "Schedule my latest video to TikTok and YouTube for Friday at 9am",
+          "How did my offers perform over the last 28 days?",
+          "Find outlier videos about home espresso from this year"
+        ],
+        "logo": "./assets/logo.png",
+        "composerIcon": "./assets/icon.png"
+      }
+    }
+  }
+}

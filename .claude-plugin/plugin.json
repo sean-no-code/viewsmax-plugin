@@ -1,0 +1,23 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "viewsmax",
+  "displayName": "ViewsMax",
+  "version": "0.1.0",
+  "description": "Publish and schedule social posts to YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky, track offers with tracked links, report clicks and revenue, and research outlier videos — through the ViewsMax MCP server.",
+  "author": {
+    "name": "ViewsMax",
+    "email": "admin@iclicksee.com",
+    "url": "https://viewsmax.com"
+  },
+  "homepage": "https://viewsmax.com/ai",
+  "license": "MIT",
+  "keywords": [
+    "social media",
+    "scheduling",
+    "publishing",
+    "analytics",
+    "link tracking",
+    "youtube",
+    "tiktok"
+  ]
+}

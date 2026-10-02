@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "viewsmax": {
+      "type": "http",
+      "url": "https://api.viewsmax.com/api/mcp"
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "viewsmax",
+  "owner": {
+    "name": "ViewsMax",
+    "email": "admin@iclicksee.com",
+    "url": "https://viewsmax.com"
+  },
+  "description": "The ViewsMax plugin for Claude Code and Cowork.",
+  "plugins": [
+    {
+      "name": "viewsmax",
+      "source": "./",
+      "category": "productivity"
+    }
+  ]
+}
