@@ -2,7 +2,7 @@
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "viewsmax",
   "version": "0.1.0",
-  "description": "Publish and schedule social posts, track offers with tracked links, report clicks and revenue, and research outlier videos through the ViewsMax MCP server.",
+  "description": "Social media scheduling: draft, schedule, and publish posts to YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky through the ViewsMax MCP server, with link tracking and outlier research to plan what to post.",
   "author": {
     "name": "ViewsMax",
     "email": "admin@iclicksee.com",
@@ -11,27 +11,29 @@
   "privacyPolicyUrl": "https://viewsmax.com/privacy",
   "homepage": "https://viewsmax.com/ai",
   "keywords": [
+    "social media scheduling",
     "social media",
     "scheduling",
     "publishing",
-    "analytics",
-    "link tracking",
+    "content calendar",
     "youtube",
-    "tiktok"
+    "tiktok",
+    "instagram",
+    "link tracking"
   ],
   "extensions": {
     "com.openai": {
       "interface": {
         "displayName": "ViewsMax",
-        "shortDescription": "Post, schedule, track offers",
-        "longDescription": "ViewsMax connects your YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky accounts so you can draft, schedule, and publish posts from a conversation. Track sponsorships and affiliate offers with a tracked link per placement, see clicks, calls booked, sign-ups, and revenue over time, and research outlier videos that beat their channel's average, with AI breakdowns of why they worked.",
+        "shortDescription": "Social media scheduling",
+        "longDescription": "ViewsMax is a social media scheduler. Connect your YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky accounts, then draft posts, schedule them for a specific date and time, or publish them right away, all from a conversation. Schedule one post to several platforms at once, plan a content calendar for the week, and review, reschedule, or delete what is queued. Tracked links and outlier video research are included to help you decide what to schedule next.",
         "developerName": "ViewsMax",
         "category": "Productivity",
         "capabilities": [
-          "Publish and schedule social posts",
-          "Track offers with tracked links",
-          "Report clicks, conversions, and revenue",
-          "Research outlier videos"
+          "Schedule social posts for a set date and time",
+          "Publish to several platforms at once",
+          "Plan and manage a content calendar",
+          "Track links and research outlier videos"
         ],
         "websiteURL": "https://viewsmax.com",
         "supportURL": "https://viewsmax.com/ai",
@@ -39,8 +41,8 @@
         "termsOfServiceURL": "https://viewsmax.com/terms",
         "defaultPrompt": [
           "Schedule my latest video to TikTok and YouTube for Friday at 9am",
-          "How did my offers perform over the last 28 days?",
-          "Find outlier videos about home espresso from this year"
+          "Plan next week's posts and schedule them across my accounts",
+          "What do I have scheduled this week?"
         ],
         "logo": "./assets/logo.png",
         "composerIcon": "./assets/icon.png"
