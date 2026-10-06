@@ -6,12 +6,22 @@
     "email": "admin@iclicksee.com",
     "url": "https://viewsmax.com"
   },
-  "description": "The ViewsMax plugin for Claude Code and Cowork.",
+  "description": "ViewsMax for Claude: post once and publish to every connected account, find outlier videos worth remaking, plan the week, and track offer revenue.",
   "plugins": [
     {
       "name": "viewsmax",
       "source": "./",
-      "category": "productivity"
+      "category": "productivity",
+      "description": "Post once and publish to every connected account, find outlier videos worth remaking, plan the week, and track offer revenue.",
+      "version": "0.2.0",
+      "tags": [
+        "cross-posting",
+        "scheduling",
+        "outliers",
+        "youtube",
+        "tiktok",
+        "instagram"
+      ]
     }
   ]
 }

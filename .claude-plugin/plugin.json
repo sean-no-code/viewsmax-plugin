@@ -2,8 +2,8 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "viewsmax",
   "displayName": "ViewsMax",
-  "version": "0.1.0",
-  "description": "Publish and schedule social posts to YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky, track offers with tracked links, report clicks and revenue, and research outlier videos — through the ViewsMax MCP server.",
+  "version": "0.2.0",
+  "description": "Post once, publish everywhere: draft, schedule and publish to YouTube, TikTok, X, LinkedIn, Threads, Instagram and Bluesky from a conversation. Find outlier videos that massively beat their channel's average and remake them for your niche, plan the week, and track offer clicks and revenue, through the ViewsMax MCP server.",
   "author": {
     "name": "ViewsMax",
     "email": "admin@iclicksee.com",
@@ -11,14 +11,22 @@
   },
   "privacyPolicyUrl": "https://viewsmax.com/privacy",
   "homepage": "https://viewsmax.com/ai",
+  "repository": "https://github.com/sean-no-code/viewsmax-plugin",
   "license": "MIT",
   "keywords": [
-    "social media",
-    "scheduling",
-    "publishing",
-    "analytics",
-    "link tracking",
+    "cross-posting",
+    "social media scheduling",
+    "publish everywhere",
+    "content calendar",
+    "outliers",
+    "viral videos",
     "youtube",
-    "tiktok"
+    "tiktok",
+    "instagram",
+    "x",
+    "linkedin",
+    "threads",
+    "bluesky",
+    "link tracking"
   ]
 }

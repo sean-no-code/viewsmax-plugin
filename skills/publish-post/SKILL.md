@@ -8,14 +8,32 @@ description: Compose, schedule, or publish a social post to the user's connected
 Publishing to a social platform is public and can't be undone. Save a draft
 unless the user has clearly asked to publish or schedule.
 
+## Fast path: one caption, every text account
+
+When the user gives a caption or idea and no targets, media or timing:
+
+1. Call `list_connected_accounts`. Target every connected platform that needs no media
+   (x, linkedin, threads, bluesky). Leave out TikTok, Instagram and YouTube unless the
+   user named them or gave media.
+2. Write the caption once, then `overrides` for any platform whose limit it exceeds
+   (X 280, Bluesky 300, Threads 500, LinkedIn 3000). Keep the meaning, cut the length.
+3. Show the per-platform text in one message and ask: post now, schedule, or save as a
+   draft? One confirm, then `create_post`.
+4. Call `get_post` and report per platform. Then offer one next step: plan the rest of
+   the week (plan-content-calendar).
+
 ## 1. Check where the user can post
 
 Call `list_connected_accounts`. If the user names a brand, also call
 `list_brands` and use `brand_id` instead of `platforms`. Don't pass both.
 
-If a requested platform isn't connected, call `get_connect_url` for it, give the
-user the link, and explain that they have to open it in a browser and click
-Connect. Don't go on until the account shows up in `list_connected_accounts`.
+If a requested platform isn't connected, call `get_connect_url` once and give the
+user the link. Say that X, LinkedIn, Threads and Bluesky take about a minute each
+and need no media, and ask them to say *connected* when done. Offer two things
+meanwhile: save the post as a draft now (they can review it in the ViewsMax app
+under Posts before it goes live) or research outliers for their niche. Don't call
+`create_post` with `posted` for a platform that isn't connected; re-check
+`list_connected_accounts` when they say *connected*.
 
 ## 2. Collect what the post needs
 
@@ -62,8 +80,11 @@ Before publishing or scheduling, show the user:
 - the time, and
 - the privacy settings.
 
-Wait for an explicit yes. Then call `create_post` with `status` set to
-`posted`, `scheduled`, or `draft`.
+Wait for an explicit yes, unless the user has explicitly said not to ask in
+future. If they say so, remember the preference (save it to memory when memory is
+available) and apply it in later sessions, but still confirm the first post to any
+platform they haven't posted to before. When in doubt, ask. Then call `create_post`
+with `status` set to `posted`, `scheduled`, or `draft`.
 
 ## 6. Report the outcome
 
@@ -71,7 +92,8 @@ Publishing runs in the background. Call `get_post` with the returned id and
 report each platform's status: pending, publishing, published, or failed. For a
 failed target, pass on its error message in plain language and suggest the fix,
 such as reconnecting the account or adding required media. If targets are still
-pending, say so and offer to check again.
+pending, say so and offer to check again. End with one next step: plan the rest of
+the week from this post (the plan-content-calendar skill).
 
 ## Editing and deleting
 
@@ -81,6 +103,8 @@ pending, say so and offer to check again.
   confirm first.
 - `delete_post` removes the post from ViewsMax only; content already live on a
   platform stays up. Tell the user that before deleting, and confirm.
+- Drafts and scheduled posts can also be reviewed and edited in the ViewsMax app
+  under Posts.
 
 ## Limits
 
