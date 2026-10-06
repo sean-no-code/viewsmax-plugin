@@ -14,7 +14,8 @@ When the user gives a caption or idea and no targets, media or timing:
 
 1. Call `list_connected_accounts`. Target every connected platform that needs no media
    (x, linkedin, threads, bluesky). Leave out TikTok, Instagram and YouTube unless the
-   user named them or gave media.
+   user named them or gave media. If nothing is connected yet, target the platforms the
+   user named, or all four text platforms, and save as a draft.
 2. Write the caption once, then `overrides` for any platform whose limit it exceeds
    (X 280, Bluesky 300, Threads 500, LinkedIn 3000). Keep the meaning, cut the length.
 3. Show the per-platform text in one message and ask: post now, schedule, or save as a
@@ -31,7 +32,8 @@ If a requested platform isn't connected, call `get_connect_url` once and give th
 user the link. Say that X, LinkedIn, Threads and Bluesky take about a minute each
 and need no media, and ask them to say *connected* when done. Offer two things
 meanwhile: save the post as a draft now (they can review it in the ViewsMax app
-under Posts before it goes live) or research outliers for their niche. Don't call
+under Posts before it goes live) or research outliers for their niche. A draft still
+needs `platforms`: pass the platforms they intend to connect. Don't call
 `create_post` with `posted` for a platform that isn't connected; re-check
 `list_connected_accounts` when they say *connected*.
 
@@ -84,7 +86,8 @@ Wait for an explicit yes, unless the user has explicitly said not to ask in
 future. If they say so, remember the preference (save it to memory when memory is
 available) and apply it in later sessions, but still confirm the first post to any
 platform they haven't posted to before. When in doubt, ask. Then call `create_post`
-with `status` set to `posted`, `scheduled`, or `draft`.
+with `status` set to `posted`, `scheduled`, or `draft`. Always include `platforms`
+(or `brand_id`), including for drafts; the server rejects a post with neither.
 
 ## 6. Report the outcome
 

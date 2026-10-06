@@ -57,8 +57,9 @@ When the user gives one post, idea, link or outlier and asks for a week, or says
    its platform limits (use `overrides`). Spread them over the user's window, one per
    day, at the times they gave or 9:00 in their time zone.
 3. Show the proposed calendar and wait for approval. Then create each post with
-   `create_post`, `status: "scheduled"` plus `scheduled_at`, or as drafts if the user
-   prefers to review in the ViewsMax app under Posts.
+   `create_post`, the chosen `platforms` (required, also for drafts), and
+   `status: "scheduled"` plus `scheduled_at`, or as drafts if the user prefers to
+   review in the ViewsMax app under Posts.
 4. Call `list_posts` for the window and show the final calendar.
 
 ## Make it a weekly habit
