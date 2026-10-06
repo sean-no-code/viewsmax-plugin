@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Behaviour checks before every push: the smoke eval suite against a mocked
+# ViewsMax server (no real posts, no sign-in). Each case is one model run on
+# your account. Skip once with: SKIP_EVALS=1 git push
+[ -n "${SKIP_EVALS:-}" ] && exit 0
+root="$(git rev-parse --show-toplevel)"
+cd "$root" || exit 1
+"$root/scripts/check.sh" || exit 1
+command -v claude >/dev/null 2>&1 || { echo "pre-push: claude CLI not found; skipping evals"; exit 0; }
+echo "pre-push: running smoke evals (mocked ViewsMax server)..."
+claude plugin eval . --tag smoke --ablation none --runs 1 --trust-plugin --no-publish \
+  --max-cost-usd 5 -j 4 --json evals/results/last-push.json
+rc=$?
+if [ $rc -ne 0 ]; then
+  echo "pre-push: evals failed (exit $rc). Open evals/results/<latest>/report.html, or push with SKIP_EVALS=1."
+  exit $rc
+fi
+echo "pre-push: evals passed."

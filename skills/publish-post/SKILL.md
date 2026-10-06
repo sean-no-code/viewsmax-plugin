@@ -15,7 +15,9 @@ When the user gives a caption or idea and no targets, media or timing:
 1. Call `list_connected_accounts`. Target every connected platform that needs no media
    (x, linkedin, threads, bluesky). Leave out TikTok, Instagram and YouTube unless the
    user named them or gave media. If nothing is connected yet, target the platforms the
-   user named, or all four text platforms, and save as a draft.
+   user named, or all four text platforms, save as a draft, and in the same reply call
+   `get_connect_url` once and give the link with: "Say *connected* when you're done
+   and I'll publish it." Don't make them ask for the link.
 2. Write the caption once, then `overrides` for any platform whose limit it exceeds
    (X 280, Bluesky 300, Threads 500, LinkedIn 3000). Keep the meaning, cut the length.
 3. Show the per-platform text in one message and ask: post now, schedule, or save as a

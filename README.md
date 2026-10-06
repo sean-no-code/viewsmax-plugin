@@ -87,6 +87,15 @@ Outlier research covers YouTube by topic search; TikTok and Instagram videos are
 - Posts you publish go from ViewsMax to the social accounts you connected.
 - Every tool call is recorded in your ViewsMax activity log (**Settings, AI Assistant Access**).
 
+## Development
+
+Two checks run before changes go live, both from the repo:
+
+- **Before every commit** (`.githooks/pre-commit`): `scripts/check.sh` validates the manifests, version agreement, skill frontmatter against the claude.ai allow-list, description lengths, and runs `claude plugin validate .`. No model calls.
+- **Before every push** (`.githooks/pre-push`): `claude plugin eval . --tag smoke` runs the cases under `evals/` against a mocked ViewsMax server in `evals/mocks/viewsmax/`, so nothing is posted and no sign-in is needed. The `create_post` mock rejects any call without `platforms`, and graders check which tools each skill called and what it said. Each case is one model run on your account.
+
+Install the hooks once with `scripts/setup-hooks.sh`. Skip a hook once with `SKIP_CHECKS=1` or `SKIP_EVALS=1`. The same checks run in GitHub Actions (`.github/workflows/check.yml`); the eval job needs an `ANTHROPIC_API_KEY` repository secret. Before a release, run the full comparison with `claude plugin eval .` (three runs per case, with and without the plugin) and open the HTML report under `evals/results/`.
+
 ## Privacy and support
 
 - Privacy policy: [viewsmax.com/privacy](https://viewsmax.com/privacy)

@@ -1,0 +1,35 @@
+name: check
+on: [push, pull_request]
+jobs:
+  structure:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Claude Code
+        run: curl -fsSL https://claude.ai/install.sh | bash && echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Structural checks
+        run: scripts/check.sh
+  evals:
+    # Behaviour checks against the mocked ViewsMax server. Needs ANTHROPIC_API_KEY
+    # in repository secrets; the job is skipped without it.
+    if: ${{ github.event_name == 'push' }}
+    needs: structure
+    runs-on: ubuntu-latest
+    env:
+      ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install Claude Code
+        run: curl -fsSL https://claude.ai/install.sh | bash && echo "$HOME/.local/bin" >> "$GITHUB_PATH"
+      - name: Smoke evals
+        if: ${{ env.ANTHROPIC_API_KEY != '' }}
+        run: |
+          claude plugin eval . --tag smoke --ablation none --runs 1 --trust-plugin --no-publish \
+            --max-cost-usd 10 -j 4 --json results.json
+      - uses: actions/upload-artifact@v4
+        if: ${{ always() && env.ANTHROPIC_API_KEY != '' }}
+        with:
+          name: eval-results
+          path: |
+            results.json
+            evals/results/

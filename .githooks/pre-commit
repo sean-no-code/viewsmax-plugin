@@ -1,0 +1,4 @@
+#!/usr/bin/env bash
+# Structural checks before every commit. Skip once with: SKIP_CHECKS=1 git commit ...
+[ -n "${SKIP_CHECKS:-}" ] && exit 0
+exec "$(git rev-parse --show-toplevel)/scripts/check.sh"
