@@ -82,7 +82,7 @@ Outlier research covers YouTube by topic search; TikTok and Instagram videos are
 ## What it sends and where
 
 - The plugin talks only to the ViewsMax server above, over HTTPS. It runs no local scripts, hooks, or commands.
-- `plugin.json` and `mcp.json` at the repo root are the ChatGPT (agent-plugins.org) manifests; Claude reads `.claude-plugin/plugin.json` and `.mcp.json`. The plugin is Markdown and JSON only: no hooks, agents, scripts or executables.
+- `plugin.json` and `mcp.json` at the repo root are the agent-plugins.org manifests read by ChatGPT and other AI agents; Claude reads `.claude-plugin/plugin.json` and `.mcp.json`. The plugin is Markdown and JSON only: no hooks, agents, scripts or executables.
 - Each tool call acts on your own ViewsMax account. Claude asks before publishing, and asks you to choose privacy settings where a platform needs them.
 - Posts you publish go from ViewsMax to the social accounts you connected.
 - Every tool call is recorded in your ViewsMax activity log (**Settings, AI Assistant Access**).

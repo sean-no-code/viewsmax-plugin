@@ -1,8 +1,8 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "viewsmax",
-  "version": "0.1.0",
-  "description": "Social media scheduling: draft, schedule, and publish posts to YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky through the ViewsMax MCP server, with link tracking and outlier research to plan what to post.",
+  "version": "0.2.0",
+  "description": "Post once, publish everywhere: draft, schedule and publish to YouTube, TikTok, X, LinkedIn, Threads, Instagram and Bluesky from a conversation. Find outlier videos that massively beat their channel's average and remake them for your niche, plan the week, and track offer clicks and revenue through the ViewsMax MCP server.",
   "author": {
     "name": "ViewsMax",
     "email": "admin@iclicksee.com",
@@ -11,11 +11,12 @@
   "privacyPolicyUrl": "https://viewsmax.com/privacy",
   "homepage": "https://viewsmax.com/ai",
   "keywords": [
+    "cross-posting",
     "social media scheduling",
-    "social media",
-    "scheduling",
-    "publishing",
+    "publish everywhere",
     "content calendar",
+    "outliers",
+    "viral videos",
     "youtube",
     "tiktok",
     "instagram",
@@ -25,24 +26,26 @@
     "com.openai": {
       "interface": {
         "displayName": "ViewsMax",
-        "shortDescription": "Social media scheduling",
-        "longDescription": "ViewsMax is a social media scheduler. Connect your YouTube, TikTok, X, LinkedIn, Threads, Instagram, and Bluesky accounts, then draft posts, schedule them for a specific date and time, or publish them right away, all from a conversation. Schedule one post to several platforms at once, plan a content calendar for the week, and review, reschedule, or delete what is queued. Tracked links and outlier video research are included to help you decide what to schedule next.",
+        "shortDescription": "Post once, publish everywhere",
+        "longDescription": "ViewsMax lets you post once and publish everywhere from your AI agent or app, such as Claude, ChatGPT, Grok or Muse. Give it one idea and it drafts the post for every connected account, schedules or publishes it, and reviews what's coming up. You can list connected accounts and brands, check platform requirements, upload media, create drafts or scheduled posts, and update post settings. Before posting, find outlier videos that massively beat their channel's average and remake them for your niche; that works with just a ViewsMax login.",
         "developerName": "ViewsMax",
         "category": "Productivity",
         "capabilities": [
+          "Publish one post to several platforms at once",
           "Schedule social posts for a set date and time",
-          "Publish to several platforms at once",
           "Plan and manage a content calendar",
-          "Track links and research outlier videos"
+          "Find outlier videos for any topic or creator and remake them for your niche",
+          "Track offer links, clicks and revenue"
         ],
         "websiteURL": "https://viewsmax.com",
         "supportURL": "https://viewsmax.com/ai",
         "privacyPolicyURL": "https://viewsmax.com/privacy",
         "termsOfServiceURL": "https://viewsmax.com/terms",
         "defaultPrompt": [
-          "Schedule my latest video to TikTok and YouTube for Friday at 9am",
-          "Plan next week's posts and schedule them across my accounts",
-          "What do I have scheduled this week?"
+          "Start with ViewsMax",
+          "Post this to all my accounts: <your caption>",
+          "Find outlier videos about <your niche> and draft my version for X and LinkedIn",
+          "Plan and schedule this week's posts across my accounts"
         ],
         "logo": "./assets/logo.png",
         "composerIcon": "./assets/icon.png"
