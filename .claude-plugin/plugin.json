@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "viewsmax",
   "displayName": "ViewsMax",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Post once, publish everywhere: draft, schedule and publish to YouTube, TikTok, X, LinkedIn, Threads, Instagram and Bluesky from a conversation. Find outlier videos that massively beat their channel's average and remake them for your niche, plan the week, and track offer clicks and revenue, through the ViewsMax MCP server.",
   "author": {
     "name": "ViewsMax",

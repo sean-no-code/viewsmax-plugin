@@ -13,7 +13,7 @@
       "source": "./",
       "category": "productivity",
       "description": "Post once and publish to every connected account, find outlier videos worth remaking, plan the week, and track offer revenue.",
-      "version": "0.2.0",
+      "version": "0.2.1",
       "tags": [
         "cross-posting",
         "scheduling",
