@@ -1,13 +1,11 @@
 ---
 name: research-outliers
-description: Find viral, breakout, over-performing videos ("outliers") on YouTube, TikTok and Instagram, videos that got many times their channel's average views, for a topic, a creator's @handle or profile URL, or a single video URL. Explain why a video took off with an AI breakdown, draft the user's own version for their accounts, and save the best to their ViewsMax library. Use when the user asks for video or post ideas, what's working or blowing up in a niche, viral or breakout videos, hidden gems from small channels, a competitor's best videos, hooks worth copying, or why a specific video took off. Needs only a ViewsMax login; no social accounts have to be connected, so never call list_connected_accounts for research.
+description: Find viral, breakout, over-performing videos ("outliers") on YouTube, TikTok and Instagram, videos that got many times their channel's average views, for a topic, a creator's @handle or profile URL, or a single video URL. Show how far each video beat its channel's average, spot the title and format patterns the winners share, draft the user's own version for their accounts, and save the best to their ViewsMax library. Use when the user asks for video or post ideas, what's working or blowing up in a niche, viral or breakout videos, hidden gems from small channels, a competitor's best videos, title hooks worth copying, or how a specific video performed against its channel. Needs only a ViewsMax login; no social accounts have to be connected, so never call list_connected_accounts for research.
 allowed-tools:
   - mcp__plugin_viewsmax_viewsmax__list_outliers
   - mcp__plugin_viewsmax_viewsmax__search_outliers
   - mcp__plugin_viewsmax_viewsmax__fetch_outlier
   - mcp__plugin_viewsmax_viewsmax__get_outlier
-  - mcp__plugin_viewsmax_viewsmax__get_outlier_breakdown
-  - mcp__plugin_viewsmax_viewsmax__generate_outlier_breakdown
   - mcp__plugin_viewsmax_viewsmax__get_outlier_channel_ingest
   - mcp__plugin_viewsmax_viewsmax__list_saved_outliers
 ---
@@ -75,12 +73,11 @@ topics people have searched.
   (platform, video_id) about every 15 seconds until `status` is `ready`. YouTube and
   TikTok usually land within a minute; Instagram can take several minutes, so tell the
   user and keep going. An error means the fetch failed; report it.
-- Show its row with the standard columns, then call `get_outlier_breakdown`:
-  - `none`: call `generate_outlier_breakdown`, then check again.
-  - `pending` or `processing`: wait, then check again.
-  - `completed`: summarize the hook, structure, why it worked, and how the user could
-    adapt it to their own channel.
-  - `failed`: report the error.
+- Show its row with the standard columns and say how far it beat its channel's
+  average. ViewsMax doesn't analyse a video's content, so don't claim to know its hook,
+  script or structure. You may point out what the data shows (title wording, length,
+  channel size, engagement), labelled as observed.
+- Then offer the next steps from **Presenting results**.
 
 ## A creator's videos
 
@@ -112,13 +109,11 @@ seconds until `done` (10 to 60 seconds); on `failed`, report `error`. Then call
 - Patterns: up to three bullets on what the top rows share (hook wording, format,
   length, channel size). Label each as observed or inferred.
 - Next: exactly three numbered options the user can answer with a number:
-  1. Break down #N: hook, structure and why it beat the channel's average.
-  2. Draft my own version of #N for my accounts and post it everywhere. (Hand off to
+  1. Draft my own version of #N for my accounts and post it everywhere. (Hand off to
      the publish-post skill; it handles connecting accounts if none are connected.)
-  3. Save #N to your ViewsMax library, tagged with the topic.
-  If the user wants a different slice instead, offer one refinement that fits the data:
-  small channels only (`max_subs: 50000`), Shorts or long-form only, last 90 days, or
-  pull in the top channel's recent videos.
+  2. Save #N to your ViewsMax library, tagged with the topic.
+  3. One refinement that fits the data: small channels only (`max_subs: 50000`), Shorts
+     or long-form only, last 90 days, or pull in the top channel's recent videos.
 
 ## Save to the library
 
@@ -148,7 +143,7 @@ already works, use it and don't ask the user to sign in twice.
 
 ## Limits
 
-`search_outliers`, `fetch_outlier`, `add_outlier_channel` and
-`generate_outlier_breakdown` are rate-limited per hour; `list_outliers` is not. On a
+`search_outliers`, `fetch_outlier` and `add_outlier_channel` are rate-limited per
+hour; `list_outliers` is not. On a
 limit error, name the action that is limited, show what you already have, and offer the
 instant alternatives. Don't retry, don't loop, don't suggest upgrading or mention prices.

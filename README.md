@@ -40,7 +40,7 @@ Nothing changes. The plugin uses the same server, so in claude.ai, Desktop and C
 
 | To do this | You need |
 |---|---|
-| Research outliers, get AI breakdowns, draft posts, save videos to your library | A ViewsMax account. Nothing else. |
+| Research outliers, draft posts from them, save videos to your library | A ViewsMax account. Nothing else. |
 | Publish or schedule posts, track offers, report performance | A ViewsMax account **and** the social accounts you post to, connected under **Dashboard, Connections**. X, LinkedIn, Threads and Bluesky post text with no media; TikTok, Instagram and YouTube need a video or image at a public URL. |
 
 ## What's included
@@ -54,7 +54,7 @@ Nothing changes. The plugin uses the same server, so in claude.ai, Desktop and C
 | `start` | Checks your accounts, gets you a first result, and sets up your first cross-post. |
 | `publish-post` | Writes, schedules, or publishes a post to your connected accounts and reports whether it published. |
 | `plan-content-calendar` | Shows what's scheduled for a period, builds a week of posts from one idea, and moves or cancels scheduled posts. |
-| `research-outliers` | Finds videos that far outperformed their channel's average, explains why, drafts your version, and saves them to your library. |
+| `research-outliers` | Finds videos that far outperformed their channel's average, spots the patterns they share, drafts your version, and saves them to your library. |
 | `track-offer` | Creates an offer with its conversion goals and a tracked link for each place it's promoted. |
 | `report-offer-performance` | Summarizes views, clicks, calls booked, email sign-ups, and sales for your offers. |
 
@@ -66,7 +66,7 @@ Outlier research covers YouTube by topic search; TikTok and Instagram videos are
 - "Post this to all my accounts: <your caption>"
 - "Find outlier videos about <your niche> and draft my version for X and LinkedIn."
 - "Plan and schedule this week's posts across my accounts."
-- "Why did this video blow up? Break down the hook and structure: <link>"
+- "How did this video do against its channel's average? <link>"
 - "Create an offer called Spring Sale for https://example.com/sale and give me a tracked link for my YouTube description."
 - "How are my offers doing this month?"
 
